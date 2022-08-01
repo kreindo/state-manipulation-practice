@@ -1,2 +1,2 @@
-# state-manipulation-practice
+# dicoding-react-starter
 Created with CodeSandbox

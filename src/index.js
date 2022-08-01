@@ -6,7 +6,7 @@ class MyForm extends React.Component {
     super();
     this.state = {
       name: '',
-      val: 'click'
+      val: 'Click me!'
     };
   }
 

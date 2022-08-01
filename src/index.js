@@ -58,19 +58,21 @@ class MyForm extends React.Component {
         <h1> Register Form</h1>
         <form>
           <label for="name">Name: </label>
-          <input id="name" type="text" />
+          <input id="name" type="text" value={this.state.name} />
           <br />
           <label for="email">Email: </label>
-          <input id="email" type="text" />
+          <input id="email" type="text" value={this.state.email} />
           <br />
           <label for="gender">Gender: </label>
-          <select id="gender">
+          <select id="gender" value={this.state.gender}>
             <option value="Man">Man</option>
             <option value="Woman">Woman</option>
           </select>
           <br />
           <button type="submit">submit</button>
         </form>
+
+        {/* foreign addition */}
         <br />
         <input type="text" onChange={this.doStuff} />
         <button onClick={this.setDoStuff}>{this.state.val}</button>

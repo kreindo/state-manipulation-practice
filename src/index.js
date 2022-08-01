@@ -17,9 +17,8 @@ class MyForm extends React.Component {
     this.onEmailChangeEventHandler = this.onEmailChangeEventHandler.bind(this);
     this.onGenderChangeEventHandler = this.onGenderChangeEventHandler.bind(this);
     this.setDoStuff = this.setDoStuff.bind(this);
-    this.doStuff = this.doStuff.bind.apply(this);
+    this.doStuff = this.doStuff.bind(this);
   }
-
 
   onNameChangeEventHandler(event) {
     this.setState(() => {
@@ -28,7 +27,7 @@ class MyForm extends React.Component {
       };
     });
   }
- 
+
   onEmailChangeEventHandler(event) {
     this.setState(() => {
       return {
@@ -36,7 +35,7 @@ class MyForm extends React.Component {
       };
     });
   }
- 
+
   onGenderChangeEventHandler(event) {
     this.setState((prevState) => {
       return {
@@ -44,7 +43,6 @@ class MyForm extends React.Component {
       };
     });
   }
-  
 
   setDoStuff = () => {
     this.setState({ val: this.state.name });
@@ -74,8 +72,8 @@ class MyForm extends React.Component {
           <button type="submit">submit</button>
         </form>
         <br />
-        <input type="text" onChange={doStuff} />
-        <button onClick={setDoStuff}>{this.state.val}</button>
+        <input type="text" onChange={this.doStuff} />
+        <button onClick={this.setDoStuff}>{this.state.val}</button>
       </div>
     );
   }

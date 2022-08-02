@@ -19,6 +19,19 @@ class MyForm extends React.Component {
     this.onGenderChangeEventHandler = this.onGenderChangeEventHandler.bind(this);
     this.setDoStuff = this.setDoStuff.bind(this);
     this.doStuff = this.doStuff.bind(this);
+    this.onSubmitEventHandler = this.onSubmitEventHandler.bind(this);
+  }
+
+  onSubmitEventHandler(event) {
+    event.preventDefault();
+
+    const message = `
+    Name: ${this.state.name}
+    Email: ${this.state.email}
+    Gender: ${this.state.gender}
+  `;
+
+    alert(message);
   }
 
   onNameChangeEventHandler(event) {
@@ -57,7 +70,7 @@ class MyForm extends React.Component {
     return (
       <div>
         <h1> Register Form</h1>
-        <form>
+        <form onSubmit={this.onSubmitEventHandler}>
           <label for="name">Name: </label>
           <input id="name" type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
           <br />

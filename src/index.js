@@ -10,7 +10,8 @@ class MyForm extends React.Component {
       name: '',
       email: '',
       gender: 'Male',
-      val: 'Click me!'
+      valsetter: 'Click me',
+      val: ''
     };
     //binding this context to event handler
     this.onNameChangeEventHandler = this.onNameChangeEventHandler.bind(this);
@@ -45,11 +46,11 @@ class MyForm extends React.Component {
   }
 
   setDoStuff = () => {
-    this.setState({ val: this.state.name });
+    this.setState({ valsetter: this.state.val });
   };
 
   doStuff = (event) => {
-    this.setState({ name: event.target.value });
+    this.setState({ val: event.target.value });
   };
 
   render() {
@@ -58,13 +59,13 @@ class MyForm extends React.Component {
         <h1> Register Form</h1>
         <form>
           <label for="name">Name: </label>
-          <input id="name" type="text" value={this.state.name} />
+          <input id="name" type="text" value={this.state.name} onChange={this.onNameChangeEventHandler} />
           <br />
           <label for="email">Email: </label>
-          <input id="email" type="text" value={this.state.email} />
+          <input id="email" type="text" value={this.state.email} onChange={this.onEmailChangeEventHandler} />
           <br />
           <label for="gender">Gender: </label>
-          <select id="gender" value={this.state.gender}>
+          <select id="gender" value={this.state.gender} onChange={this.onGenderChangeEventHandler}>
             <option value="Man">Man</option>
             <option value="Woman">Woman</option>
           </select>
@@ -75,7 +76,7 @@ class MyForm extends React.Component {
         {/* foreign addition */}
         <br />
         <input type="text" onChange={this.doStuff} />
-        <button onClick={this.setDoStuff}>{this.state.val}</button>
+        <button onClick={this.setDoStuff}>{this.state.valsetter}</button>
       </div>
     );
   }
